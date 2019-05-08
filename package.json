@@ -1,0 +1,93 @@
+{
+  "name": "shopmate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!/**/*.{css,scss}",
+      "!<rootDir>/node_modules/",
+      "!src/services",
+      "!src/**/index.js",
+      "!src/redux/store/**",
+      "!src/setupTests.js"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-static-stubs/$1",
+      "\\.(css|less|scss|png)$": "identity-obj-proxy"
+    }
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "webpack-dev-server --mode development --hot",
+    "build": "webpack --mode production",
+    "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
+    "lint": "eslint src/**/*.js src/**/*.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udochukwu/shopmate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/udochukwu/shopmate/issues"
+  },
+  "homepage": "https://github.com/udochukwu/shopmate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.13.0",
+    "husky": "^2.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.6",
+    "prettier": "^1.17.0",
+    "prettier-stylelint": "^0.4.2",
+    "pretty-quick": "^1.10.0",
+    "react-test-renderer": "^16.8.6",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
+    "axios": "^0.18.0",
+    "axios-mock-adapter": "^1.16.0",
+    "dotenv-webpack": "^1.7.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "jest-enzyme": "^7.0.2",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.4",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3",
+    "redux-thunk": "^2.3.0",
+    "save-dev": "^2.0.0"
+  }
+}
