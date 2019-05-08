@@ -1,0 +1,36 @@
+:root {
+  --primary-color:#f62f5e;
+}
+html{
+  font-size: 16px;
+}
+body{
+  background-color: #f7f7f7 !important;
+}
+.primary-text{
+  color: var(--primary-color);
+}
+.text-black{
+  color:#000000 !important;
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { 
+  html{
+    font-size: 13px;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+  html{
+    font-size: 10px;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .hide-on-small-device{
+    display: none;
+  }
+}
