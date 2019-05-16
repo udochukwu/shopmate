@@ -2,8 +2,8 @@
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import ReduxToastr from "react-redux-toastr";
 import Pagination from "../../components/Pagination/Pagination";
-
 import Header from "../../components/Header/Header";
 import "./Home.scss";
 import {
@@ -16,7 +16,8 @@ import MapProductsToCard from "../../components/MapProductsToCard/MapProductsToC
 import FirstJumbotron from "../../components/FirstJumbotron/FirstJumbotron";
 import Footer from "../../components/Footer/Footer";
 import Quote from "../../components/Quote/Quote";
-import { Categories } from "../../components/Categories/Categories";
+import Categories from "../../components/Categories/Categories";
+import AuthModal from "../../components/AuthModal/AuthModal";
 
 export class Home extends Component {
   constructor(props) {
@@ -47,8 +48,19 @@ export class Home extends Component {
     } = this.props;
     return (
       <React.Fragment>
+        <ReduxToastr
+          timeOut={4000}
+          newestOnTop={false}
+          preventDuplicates
+          position="top-right"
+          transitionIn="fadeIn"
+          transitionOut="fadeOut"
+          progressBar
+          closeOnToastrClick
+        />
         <Sidebar displaySidebar={displaySidebar} {...this.props} />
         <Header {...this.props} />
+        <AuthModal {...this.props} />
         <div className="custom-container main-wrapper">
           <section>
             <div className="row">
@@ -62,7 +74,7 @@ export class Home extends Component {
           <section className="products-section">
             <div className="row">
               <div className="col-lg-9">
-                {products.length < 1 ? (
+                {isSearchResult & (products.length < 1) ? (
                   <div>
                     <div className="alert alert-danger" role="alert">
                       No exact matches found
@@ -85,7 +97,7 @@ export class Home extends Component {
                 )}
               </div>
               <div className="col-lg-3 d-none d-lg-block">
-                <Categories/>
+                <Categories />
               </div>
             </div>
           </section>
@@ -108,12 +120,14 @@ Home.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object)
 };
 
-const mapStateToProps = ({ products, sidebar }) => ({
+const mapStateToProps = ({ products, sidebar, modals }) => ({
   productsCount: products.count,
   products: products.rows,
   loading: products.loading,
   displaySidebar: sidebar.visible,
-  isSearchResult: products.searchResults
+  isSearchResult: products.searchResults,
+  showModal: modals.showModal,
+  authType: modals.authType
 });
 
 export default connect(

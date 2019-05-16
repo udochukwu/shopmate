@@ -29,7 +29,7 @@ export class ProductCard extends Component {
         {/* <img className="img-fluid" alt="" src={imageUrl} /> */}
         <h4 className="product-name">{product.name}</h4>
         <h5 className="product-price">{`£${product.price}`}</h5>
-        <a className="btn " href="/">Buy Now</a>
+        <a className="btn gradient-bg" href="/">Buy Now</a>
         {product.discounted_price == "0.00" && <span className="badge">Hot</span>}
         </div>
       </div>

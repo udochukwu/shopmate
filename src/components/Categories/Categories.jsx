@@ -15,7 +15,7 @@ export class Categories extends Component {
   render() {
     return (
       <div className="category">
-        <div className="category-head">
+        <div className="category-head gradient-bg">
           <span>
             <i className="far fa-list-alt mr-3" />
             All Categories

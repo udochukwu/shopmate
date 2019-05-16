@@ -26,7 +26,6 @@ export class SearchInput extends Component {
                 <button
                   className="search-input-button btn btn-outline-secondary"
                   type="button"
-                  id="button-addon1"
                 >
                   <i className="far fa-envelope" />
                 </button>
