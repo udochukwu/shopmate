@@ -1,0 +1,27 @@
+.category {
+  // box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  height: 330px;
+  border: none;
+  .category-head {
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    display: flex;
+    align-content: center;
+    i {
+      font-size: 20px;
+    }
+  }
+  .category-body {
+    padding: 10px 20px;
+    .list-group-item{
+      padding:7px;
+      font-weight:bold;
+      &:hover{
+        cursor: pointer;
+        color:var(--primary-color);
+      }
+    }
+  }
+}

@@ -1,48 +1,122 @@
 /* eslint-disable react/destructuring-assignment */
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import React, { Component} from 'react';
-import './Home.scss';
-import { getAllProducts } from '../../redux/actionCreators/productActions';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import Pagination from "../../components/Pagination/Pagination";
+
+import Header from "../../components/Header/Header";
+import "./Home.scss";
+import {
+  getAllProducts,
+  searchProducts
+} from "../../redux/actionCreators/productActions";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import HomeSlider from "../../components/HomeSlider/HomeSlider";
+import MapProductsToCard from "../../components/MapProductsToCard/MapProductsToCard";
+import FirstJumbotron from "../../components/FirstJumbotron/FirstJumbotron";
+import Footer from "../../components/Footer/Footer";
+import Quote from "../../components/Quote/Quote";
+import { Categories } from "../../components/Categories/Categories";
 
 export class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.handlePageChange = this.handlePageChange.bind(this);
+    this.state = {
+      limit: 6,
+      page: 1
+    };
   }
 
   componentDidMount() {
-    this.props.getAllProducts();
+    const { limit, page } = this.state;
+    this.props.getAllProducts({ limit, page });
+  }
+
+  handlePageChange(pageNumber) {
+    this.setState({ page: pageNumber });
+    this.props.getAllProducts(this.state);
   }
 
   render() {
-    const {loading} = this.props;
-    if (loading) {
-      return (
-        <div className="home">
-          <h1> Loading...</h1>
-        </div>
-      );
-    }
+    const {
+      displaySidebar,
+      products,
+      productsCount,
+      isSearchResult
+    } = this.props;
     return (
-      <div className="home">
-        <h1> Hello, World! Welcome Home </h1>
-      </div>
+      <React.Fragment>
+        <Sidebar displaySidebar={displaySidebar} {...this.props} />
+        <Header {...this.props} />
+        <div className="custom-container main-wrapper">
+          <section>
+            <div className="row">
+              <div className="col-md-12">
+                {!isSearchResult && <HomeSlider />}
+              </div>
+              {/* <div className="col-md-3">other content here</div> */}
+            </div>
+          </section>
+          <div />
+          <section className="products-section">
+            <div className="row">
+              <div className="col-lg-9">
+                {products.length < 1 ? (
+                  <div>
+                    <div className="alert alert-danger" role="alert">
+                      No exact matches found
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <MapProductsToCard products={products} />
+                    <div className="text-center">
+                      <Pagination
+                        page={this.state.page}
+                        limit={this.state.limit}
+                        productsCount={productsCount}
+                        pageRange={5}
+                        handlePageChange={this.handlePageChange}
+                        itemClass="pagination-item"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="col-lg-3 d-none d-lg-block">
+                <Categories/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <FirstJumbotron />
+          </section>
+        </div>
+        <Quote />
+        <Footer />
+      </React.Fragment>
     );
   }
 }
 Home.propTypes = {
   getAllProducts: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
+  searchProducts: PropTypes.func.isRequired,
+  displaySidebar: PropTypes.bool.isRequired,
+  isSearchResult: PropTypes.bool.isRequired,
+  productsCount: PropTypes.number,
+  products: PropTypes.arrayOf(PropTypes.object)
 };
 
-const mapStateToProps = ({ products }) => ({
-  count: products.count,
-  rows: products.rows,
-  loading: products.loading
+const mapStateToProps = ({ products, sidebar }) => ({
+  productsCount: products.count,
+  products: products.rows,
+  loading: products.loading,
+  displaySidebar: sidebar.visible,
+  isSearchResult: products.searchResults
 });
 
 export default connect(
   mapStateToProps,
-  { getAllProducts }
+  { getAllProducts, searchProducts }
 )(Home);

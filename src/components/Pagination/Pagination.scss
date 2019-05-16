@@ -1,0 +1,49 @@
+.pagination {
+  margin:20px 0px;
+  display:flex;
+  justify-content: center!important;
+  .pagination-item {
+    background-color: #ffffff;
+    min-width: 30px;
+    min-height: 30px;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 20px;
+    margin: 0px 20px;
+    box-shadow: 1px 2px 8px #8888885e;
+    font-weight: bold;
+    font-size:12px;
+    &:hover {
+      cursor: pointer;
+      background-color: #efefef;
+    }
+    a {
+      color: #000000;
+    }
+  }
+  .active {
+    background-color: var(--primary-color);
+    a {
+      color: #ffffff;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .pagination {
+    .pagination-item {
+      min-width: 25px;
+      min-height: 25px;
+      margin: 0px 8px;
+      font-size:10px;
+    }
+    .active {
+      background-color: var(--primary-color);
+      a {
+        color: #ffffff;
+      }
+    }
+  }
+}

@@ -3,6 +3,10 @@ export default {
     count: 0,
     rows: [],
     loading: false,
-    error: null
+    error: null,
+    searchResults: false
+  },
+  sidebar: {
+    visible: false,
   }
 };

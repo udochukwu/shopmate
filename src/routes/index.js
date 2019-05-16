@@ -11,6 +11,7 @@ export const RouteList = () => (
     <Route/>
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/search/:" component={Home} />
       <Route component={notFound} />
     </Switch>
   </React.Fragment>

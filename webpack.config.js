@@ -1,4 +1,5 @@
 const path = require("path");
+// eslint-disable-next-line no-unused-vars
 const webpack = require("webpack");
 const Dotenv = require('dotenv-webpack');
 
@@ -16,6 +17,29 @@ module.exports = {
       {
         test: /\.(css|scss|sass)$/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: 'react-svg-loader',
+            options: {
+              jsx: true
+            }
+          }
+        ]
       }
     ]
   },

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1557278986906" clover="3.2.0">
-  <project timestamp="1557278986906" name="All files">
+<coverage generated="1557281154611" clover="3.2.0">
+  <project timestamp="1557281154612" name="All files">
     <metrics statements="30" coveredstatements="21" conditionals="13" coveredconditionals="9" methods="10" coveredmethods="6" elements="53" coveredelements="36" complexity="0" loc="30" ncloc="30" packages="5" files="6" classes="6"/>
     <package name="redux.actionCreators">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
