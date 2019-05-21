@@ -1,9 +1,9 @@
 header {
   font-size: 16px;
   font-weight: bold;
-
+  // position: fixed;
   .header-links a {
-    margin-right:30px;
+    margin-right: 30px;
   }
   .header-top-bar {
     padding: 0px 30px;
@@ -11,6 +11,38 @@ header {
     font-size: 16px;
     display: flex;
     background-color: #ffffff;
+
+    .show > .btn-secondary.dropdown-toggle {
+      background-color: #ffffff;
+      border-color: #ffffff;
+      color: var(--primary-color);
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: #ffffff;
+        border-color: #ffffff;
+        color: var(--primary-color);
+        box-shadow: none;
+      }
+    }
+    .dropdown-toggle {
+      background-color: #ffffff;
+      border-color: #ffffff;
+      color: var(--primary-color);
+      font-size: 16px;
+      font-weight: bold;
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: #ffffff;
+        border-color: #ffffff;
+        color: var(--primary-color);
+        box-shadow: none;
+      }
+      .dropdown-menu {
+        font-size: 13px;
+      }
+    }
   }
   .header-navbar {
     background-color: #2e2e2e;
@@ -36,10 +68,10 @@ header {
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
-  header{
+  header {
     .header-links a {
-      margin-right:7px;
-      font-size:15px;
+      margin-right: 7px;
+      font-size: 15px;
     }
   }
 }
@@ -78,5 +110,4 @@ header {
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
-
 }

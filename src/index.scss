@@ -13,7 +13,49 @@ body{
 .text-black{
   color:#000000 !important;
 }
+.gradient-bg{
+  background: -webkit-linear-gradient(50deg,var(--primary-color),rgba(235, 20, 70, 0.637))!important;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+.montserrat{
+  font-family:Montserrat;
+}
 
+.text-primary{
+  color: var(--primary-color);
+}
+.no-outline{
+  &:focus,
+  &:hover,
+  &:active {
+    outline: none;
+    border: none;
+  }
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.button{
+  border-radius: 20px;
+  border:0;
+  padding:10px 15px;
+  box-shadow: 1px 2px 8px #8888885e;
+  &:focus,
+  &:hover,
+  &:active {
+    outline: none;
+    border: none;
+  }
+  &:hover{
+    box-shadow: 1px 5px 8px #8888885e;
+  }
+}
+.button-primary{
+  background-color: var(--primary-color);
+  color:#ffffff;
+}
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) { 
   html{

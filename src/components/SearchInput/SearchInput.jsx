@@ -38,7 +38,6 @@ const {queryString} = this.state;
           <button
             className="search-input-button btn btn-outline-secondary"
             type="button"
-            id="button-addon1"
           >
             <i className="fas fa-search"></i>
           </button>
