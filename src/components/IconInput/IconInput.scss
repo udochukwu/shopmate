@@ -1,0 +1,26 @@
+.icon-input {
+  .input-group {
+    i{
+      font-size: 15px;
+    }
+    .text-input {
+      border: none;
+      border-bottom: 1px solid #e1e1e1;
+      border-radius: 0px;
+      font-size: 12px;
+      margin-bottom: 10px;
+      &:focus,
+      &:hover,
+      &:active {
+        box-shadow: none;
+      }
+    }
+    .input-group-prepend {
+      .input-group-text {
+        border: none;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e1e1;
+      }
+    }
+  }
+}

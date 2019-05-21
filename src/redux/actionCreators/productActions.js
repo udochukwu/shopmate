@@ -3,7 +3,7 @@ import axios from 'axios';
 import errorHandler from '../../services/errorHandler';
 import * as types from '../constants/productActionTypes';
 
-const rootURL = process.env.ROOT_URL;
+const rootURL = "https://backendapi.turing.com";
 
 export const getAllProducts =  ({ limit=6, page=1 }={}) => dispatch => {
   dispatch({ type: types.ALL_PRODUCTS_REQUEST });
