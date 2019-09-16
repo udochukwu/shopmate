@@ -1,0 +1,42 @@
+.header-cart-icon{
+  svg{
+    height: 20px;
+    width: 20px;
+    font-weight:bold;
+  }
+  margin-right:20px;
+  cursor: pointer;
+}
+.header-cart-icon .p1[data-count]:after{
+  position:absolute;
+  right:-40%;
+  top:30%;
+  content: attr(data-count);
+  font-size:40%;
+  padding:5px;
+  border-radius:50%;
+  line-height:1em;
+  color: var(--text-color);
+  background:var(--badge-color);
+  text-align:center;
+  min-width: 25px;
+  min-height: 20px;
+}
+.header-cart-icon i{
+  font-size:20px;
+}
+@media (max-width: 767.98px) {
+  .header-cart-icon .p1[data-count]:after{
+    position:absolute;
+    right:-10%;
+    top:25%;
+    text-align:center;
+    min-width: 15px;
+    min-height: 15px;
+    font-size:40%;
+  }
+  .header-cart-icon i{
+    font-size:15px;
+  }
+}
+

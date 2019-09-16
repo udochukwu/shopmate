@@ -1,0 +1,43 @@
+.product-card{
+  position:relative;
+  background-color: #ffffff;
+  padding:30px;
+  margin-bottom:20px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+  height:330px;
+  &:hover{
+    box-shadow: 1px 15px 15px #bebcbc;
+  }
+
+  .product-name{
+    font-size:16px;
+    font-weight:bold;
+    margin-top:20px;
+  }
+  .product-price{
+    color:var(--primary-color);
+    font-size:16px;
+    font-weight:bold;
+  }
+  .btn{
+    background-color: var(--primary-color);
+    color:#ffffff;
+    border-radius:20px;
+    font-size:11px;
+    margin-top:20px;
+
+  }
+  .badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    display:inline-block;
+    background-color: var(--primary-color);
+    border-radius:0px;
+    color:#ffffff;
+    width:50px;
+    height:25px;
+    font-size:16px;
+    font-family: Montserrat;
+  }
+}

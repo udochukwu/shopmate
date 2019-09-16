@@ -1,0 +1,47 @@
+.sidebar {
+  height: 100%;
+  // width: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 1;
+  // top: 120px;
+  top: 0px;
+  left: 0;
+  // background-color: #111;
+  background-color: #2e2e2e;
+
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 10px;
+  opacity: 1;
+  .navbar-brand {
+    color: #f62f5e;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-align: center;
+  }
+  .list-group{
+    margin-top:50px;
+  }
+  .list-group-item {
+    color: #fff;
+    background-color: inherit;
+    &:hover{
+      background-color: #000000;
+      cursor: pointer;
+    }
+  }
+}
+.hide-sidebar {
+  width: 0%;
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .show-sidebar {
+    width: 70%;
+    -webkit-transition: width 0.5s;
+    transition: all 0.5s;
+  }
+}

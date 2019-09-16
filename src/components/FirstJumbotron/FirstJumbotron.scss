@@ -1,0 +1,41 @@
+.first-jumbotron{
+  height:350px;
+  background: rgba(0, 0, 0, 0) url("../../static/images/images-shoe2.png")
+  repeat scroll center center / cover;
+  padding-left: 60px;
+  box-shadow: 1px 2px 5px #bebcbc;
+
+  h1{
+    font-size: 48px;
+    font-weight: bold;
+    font-family: "PlayfairDisplay";
+    letter-spacing: 2px;
+    color: #ffffff;
+  }
+  p {
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-size: 24px;
+    letter-spacing: 1px;
+    max-width: 500px;
+    font-weight: bold;
+  }
+  a {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border-radius: 25px;
+    width: 160px;
+    padding: 15px 30px;
+    border: none;
+    font-size: 15px;
+    &:hover{
+      box-shadow: 5px 10px 8px #8888885e;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .first-jumbotron{
+    padding-left: 30px;
+  }
+}

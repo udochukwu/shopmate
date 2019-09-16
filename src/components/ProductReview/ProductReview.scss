@@ -1,0 +1,43 @@
+.product-review {
+  margin-top: 10px;
+  margin-bottom:30px;
+  border-bottom: solid 1px #e5e5e5;
+padding:40px 0px;
+  h6 {
+    font-weight: bold;
+    margin: 0px;
+  }
+  .star-div {
+    margin-bottom: 10px;
+  }
+  .actions-div {
+
+    .button-cont{
+      width:100px;
+      align-items: center;
+    }
+      button {
+        width: 36px;
+        height: 36px;
+        background-color: #efefef;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        .fa-heart{
+          color: var(--primary-color);
+        }
+        &:focus,
+        &:hover,
+        &:active {
+          border-color: #ffffff;
+          outline: none;
+          border: none;
+          font-size: 22px;
+      }
+    }
+  }
+}
