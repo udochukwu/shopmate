@@ -4,8 +4,6 @@ const webpack = require("webpack");
 const Dotenv = require('dotenv-webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-const ASSET_PATH = process.env.ASSET_PATH || '/';
-
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
@@ -62,9 +60,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html')
     }),
-    // new webpack.DefinePlugin({
-    //   'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH)
-    // }),
     new Dotenv()
   ]
 };

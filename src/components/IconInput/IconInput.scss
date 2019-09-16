@@ -1,4 +1,8 @@
 .icon-input {
+  ::placeholder{
+    color:#bebbbb;
+    font-size:10px;
+  }
   .input-group {
     i{
       font-size: 15px;
@@ -13,6 +17,10 @@
       &:hover,
       &:active {
         box-shadow: none;
+      }
+      ::placeholder{
+        color:#bebbbb;
+        font-size:10px;
       }
     }
     .input-group-prepend {

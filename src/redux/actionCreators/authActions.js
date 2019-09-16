@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { toastr } from 'react-redux-toastr'
+import { toastr } from 'react-redux-toastr';
 import * as types from '../constants/authActionTypes';
 import { HIDE_SIGNIN_MODAL, HIDE_SIGNUP_MODAL } from "../constants/modalActionTypes"
 import { setAuthToken } from '../../services/AuthToken';
@@ -10,9 +10,11 @@ const rootURL = "https://backendapi.turing.com";
 export const signup = (userData) => dispatch => {
   dispatch({ type: types.SIGNUP_REQUEST });
   return axios.post(`${rootURL}/customers`, userData).then((response) => {
+    localStorage.setItem('sm-token', response.data.accessToken);
+    setAuthToken(response.data.accessToken);
     dispatch({
       type: types.SIGNUP_SUCCESS,
-      responseData: response.data,
+      userData: jwtDecode(response.data.accessToken),
     });
     dispatch({ type: HIDE_SIGNUP_MODAL });
     toastr.success('Success', 'Succesfully Signed Up');
@@ -31,10 +33,9 @@ export const login = (userData) => dispatch => {
   return axios.post(`${rootURL}/customers/login`, userData).then((response) => {
     localStorage.setItem('sm-token', response.data.accessToken);
     setAuthToken(response.data.accessToken);
-    const decoded = jwtDecode(response.data.accessToken);
     dispatch({
       type: types.LOGIN_SUCCESS,
-      userData: decoded,
+      userData: jwtDecode(response.data.accessToken),
     });
     dispatch({ type: HIDE_SIGNIN_MODAL });
     toastr.success('Success', 'Succesfully logged in');
@@ -53,6 +54,7 @@ export const resetState = () => dispatch => {
 
 export const logout = () => dispatch => {
   localStorage.removeItem('sm-token');
+  delete axios.defaults.headers.common['user-key'];
   toastr.success('Success', 'Succesfully logged out');
   return dispatch({ type: types.LOGOUT });
 };

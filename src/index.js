@@ -1,8 +1,8 @@
-/* eslint-disable no-console */
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux'
 import jwtDecode from 'jwt-decode';
+import {Elements, StripeProvider} from 'react-stripe-elements';
 import configureStore from './redux/store/configureStore';
 import initialState from './redux/reducers/initialState';
 import { LOGIN_SUCCESS } from './redux/constants/authActionTypes';
@@ -23,6 +23,7 @@ if (localStorage.getItem('sm-token')) {
 }
 
 ReactDOM.render(
+  
   <Provider store={store}>
     <Routes />
   </Provider>,

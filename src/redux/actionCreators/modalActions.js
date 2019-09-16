@@ -17,3 +17,15 @@ export const hideSigninModal =  () => dispatch => {
   dispatch({ type: authTypes.AUTH_RESET });
   return dispatch({ type: types.HIDE_SIGNIN_MODAL });
 };
+export const showProfileModal =  () => dispatch => {
+  return dispatch({ type: types.SHOW_PROFILE_MODAL });
+};
+export const hideProfileModal =  () => dispatch => {
+  return dispatch({ type: types.HIDE_PROFILE_MODAL });
+};
+export const showCartModal =  () => dispatch => {
+  return dispatch({ type: types.SHOW_CART_MODAL });
+};
+export const hideCartModal =  () => dispatch => {
+  return dispatch({ type: types.HIDE_CART_MODAL });
+};

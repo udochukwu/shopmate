@@ -13,7 +13,7 @@ export class IconInput extends Component {
   componentDidMount() {}
 
   render() {
-    const {value, placeholder, type, iconClass, handleChange, name, required } = this.props;
+    const {value, defaultValue, placeholder, type, iconClass, handleChange, name, required, readonly } = this.props;
     return (
       <div className="icon-input">
         <div className="input-group mb-3">
@@ -27,11 +27,13 @@ export class IconInput extends Component {
             className="form-control text-input mb-0"
             placeholder={placeholder}
             value={value}
+            defaultValue={defaultValue}
             name={name}
             aria-label="Username"
             aria-describedby="basic-addon1"
             onChange={handleChange}
             required={required}
+            readOnly={readonly}
           />
         </div>
       </div>
@@ -40,12 +42,14 @@ export class IconInput extends Component {
 }
 IconInput.propTypes = {
   value: PropTypes.string,
+  defaultValue: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
   iconClass: PropTypes.string,
   name: PropTypes.string,
   handleChange: PropTypes.func,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  readonly: PropTypes.bool
 };
 
 // eslint-disable-next-line no-empty-pattern

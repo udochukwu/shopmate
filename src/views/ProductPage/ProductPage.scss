@@ -1,0 +1,136 @@
+.product-page {
+  // padding: 30px 0px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+  border:1px solid rgba(0, 0, 0, 0.1);
+  border-top:none;
+
+  .product-details{
+     padding: 30px 0px;
+     background-color: #ffffff;
+     border-bottom:1px solid rgba(0, 0, 0, 0.1);
+  }
+  .product-reviews{
+  padding: 30px 30px;
+  .submit-review{
+    background-color: var(--primary-color);
+    color:#ffffff;
+    border-radius:24px;
+    font-size:12px;
+    padding:9px 30px;
+  }
+  }
+  .main-image {
+    height: 350px;
+  }
+  .star-ratings {
+    color: #ffc94f;
+    margin-right: 5px;
+    font-size: 20px;
+  }
+  h4 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .content-header {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    color: #b4b4b4;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .colors {
+    display: flex;
+    .color-option {
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      border: solid 4px #ffffff;
+      margin-right: 10px;
+      cursor: pointer;
+      &:focus,
+      &:hover,
+      &:active {
+        border-color: #ffffff;
+        outline: none;
+      }
+    }
+    .active {
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .sizes {
+    display: flex;
+    .size-option {
+      width: 55px;
+      height: 25px;
+      border-radius: 2px;
+      border: none;
+      margin-right: 10px;
+      background-color: #efefef;
+      font-size: 13px;
+      &:focus,
+      &:hover,
+      &:active {
+        border-color: #ffffff;
+        outline: none;
+      }
+    }
+    .active {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+  }
+  .quantity {
+    button {
+      width: 36px;
+      height: 36px;
+      background-color: #efefef;
+      border-radius: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      border: none;
+      &:focus,
+      &:hover,
+      &:active {
+        border-color: #ffffff;
+        outline: none;
+        border: none;
+        font-size: 22px;
+      }
+    }
+    input {
+      width: 50px;
+      border-radius: 20px;
+      margin: 0px 10px;
+      text-align: center;
+      font-weight: bold;
+      border: 1px solid #efefef;
+      &:focus,
+      &:hover,
+      &:active {
+        outline: none;
+      }
+    }
+  }
+  .cart-wish {
+    margin-top: 40px;
+    button {
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 100px;
+      height: 60px;
+      width: 220px;
+      color: #ffffff;
+    }
+    .fa-heart {
+      color: var(--primary-color);
+      font-size: 20px;
+    }
+  }
+}

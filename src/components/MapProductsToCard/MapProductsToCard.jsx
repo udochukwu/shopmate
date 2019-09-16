@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { Component} from 'react';
 import './MapProductsToCard.scss';
-import { ProductCard } from '../ProductCard/ProductCard';
+import ProductCard  from '../ProductCard/ProductCard';
 
 export class MapProductsToCard extends Component {
   constructor(props) {

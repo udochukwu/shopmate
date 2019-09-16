@@ -6,8 +6,11 @@ import { logout } from "../../redux/actionCreators/authActions";
 import "./Header.scss";
 import {
   showSignupModal,
-  showSigninModal
+  showSigninModal,
+  showProfileModal
 } from "../../redux/actionCreators/modalActions";
+import { getCartItems } from '../../redux/actionCreators/cartActions';
+
 import gbrFlag from "../../static/images/gbr.png";
 
 import CartIcon from "../CartIcon/CartIcon";
@@ -18,8 +21,8 @@ class TopBar extends Component {
     this.state = {};
   }
   renderAuthLinks() {
-    const { user, showSignupModal, showSigninModal, logout } = this.props;
-    if (user.isAuthenticated) {
+    const { auth, showSignupModal, showSigninModal, showProfileModal, logout } = this.props;
+    if (auth.isAuthenticated) {
       return (
         <div className=" d-flex align-items-center justify-content-between">
           <span>Hi!</span>
@@ -32,14 +35,21 @@ class TopBar extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              {user.userData.name}
+              {auth.userData.name}
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
               <button className="dropdown-item" type="button">
-              <i className="fas fa-shopping-bag mr-2"></i> My Bag
+                <i className="fas fa-shopping-bag mr-2" /> My Bag
               </button>
-              <button className="dropdown-item" type="button">
-              <i className="far fa-user mr-2"></i> My Profile
+              <button
+                className="dropdown-item"
+                type="button"
+                onClick={e => {
+                  e.preventDefault();
+                  showProfileModal();
+                }}
+              >
+                <i className="far fa-user mr-2" /> My Profile
               </button>
               <button
                 className="dropdown-item"
@@ -49,7 +59,8 @@ class TopBar extends Component {
                   logout();
                 }}
               >
-                <i className="fas fa-sign-out-alt mr-2"></i>Logout
+                <i className="fas fa-sign-out-alt mr-2" />
+                Logout
               </button>
             </div>
           </div>
@@ -85,6 +96,7 @@ class TopBar extends Component {
   }
 
   render() {
+    const { cart, handleCartClick } = this.props;
     return (
       <div className="bg-white">
         <div className="custom-container header-top-bar align-items-center justify-content-between">
@@ -105,11 +117,12 @@ class TopBar extends Component {
               <img alt="" src={gbrFlag} /> £GBP
             </span>
             <CartIcon
-              items={0}
+              items={cart.items.length}
               cartColor="#000000"
               badgeColor="#f62f5e"
               textColor="#ffffff"
               iconType="cart"
+              handleClick={handleCartClick}
             />
             <span className="hide-on-small-device">Your bag: £3.99</span>
           </div>
@@ -121,14 +134,18 @@ class TopBar extends Component {
 TopBar.propTypes = {
   showSignupModal: PropTypes.func.isRequired,
   showSigninModal: PropTypes.func.isRequired,
+  showProfileModal: PropTypes.func.isRequired,
+  handleCartClick: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  cart: PropTypes.object,
 };
-const mapStateToProps = ({ user }) => ({
-  user
+const mapStateToProps = ({ auth, cart }) => ({
+  auth,
+  cart
 });
 
 export default connect(
   mapStateToProps,
-  { showSignupModal, showSigninModal, logout }
+  { showSignupModal, showSigninModal, showProfileModal, logout, getCartItems }
 )(TopBar);

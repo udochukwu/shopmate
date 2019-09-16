@@ -1,7 +1,7 @@
 header {
   font-size: 16px;
   font-weight: bold;
-
+  // position: fixed;
   .header-links a {
     margin-right: 30px;
   }
@@ -12,8 +12,8 @@ header {
     display: flex;
     background-color: #ffffff;
 
-    .show>.btn-secondary.dropdown-toggle {
-     background-color: #ffffff;
+    .show > .btn-secondary.dropdown-toggle {
+      background-color: #ffffff;
       border-color: #ffffff;
       color: var(--primary-color);
       &:focus,
@@ -24,13 +24,13 @@ header {
         color: var(--primary-color);
         box-shadow: none;
       }
-  }
+    }
     .dropdown-toggle {
       background-color: #ffffff;
       border-color: #ffffff;
       color: var(--primary-color);
       font-size: 16px;
-      font-weight:bold;
+      font-weight: bold;
       &:focus,
       &:hover,
       &:active {
@@ -39,8 +39,8 @@ header {
         color: var(--primary-color);
         box-shadow: none;
       }
-      .dropdown-menu{
-        font-size:13px;
+      .dropdown-menu {
+        font-size: 13px;
       }
     }
   }

@@ -1,0 +1,37 @@
+.profile-modal {
+  label{
+    font-weight:800;
+    font-size:10px;
+  }
+  .update-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 24px;
+    font-size: 12px;
+    padding: 9px 30px;
+  }
+  a{
+    color:var(--primary-color);
+  }
+  select{
+    width:100%;
+    height:30px;
+    border:0;
+    padding:10px 0px;
+    border-bottom: 1px solid #e1e1e1;
+    border-radius:0px;
+    background-color: #ffffff;
+    &:hover{
+    border-bottom: 1px solid #e1e1e1;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .profile-modal {
+    select{
+      height:50px;
+    } 
+  }
+}

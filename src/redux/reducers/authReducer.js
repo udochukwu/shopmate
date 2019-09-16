@@ -6,7 +6,8 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
-  AUTH_RESET
+  AUTH_RESET,
+  LOGOUT
 } from '../constants/authActionTypes';
 
 const authReducer = (state = initialState.auth, action) => {
@@ -26,13 +27,16 @@ const authReducer = (state = initialState.auth, action) => {
         loading: true,
         success: false,
         failure: false,
-        error: {}
+        error: {},
+        isAuthenticated: false,
       };
     case SIGNUP_SUCCESS:
       return {
         ...state,
         loading: false,
         success: true,
+        userData: action.userData,
+        isAuthenticated: true,
       };
 
     case SIGNUP_FAILURE:
@@ -49,6 +53,8 @@ const authReducer = (state = initialState.auth, action) => {
         loading: true,
         success: false,
         failure: false,
+        isAuthenticated: false,
+        userData: action.userData,
         error: {}
       };
 
@@ -57,6 +63,8 @@ const authReducer = (state = initialState.auth, action) => {
         ...state,
         loading: false,
         success: true,
+        userData: action.userData,
+        isAuthenticated: true
       };
 
     case LOGIN_FAILURE:
@@ -64,8 +72,15 @@ const authReducer = (state = initialState.auth, action) => {
         ...state,
         loading: false,
         failure: true,
-        error: action.error
+        error: action.error,
+        isAuthenticated: false
       };
+
+      case LOGOUT:
+        return {
+          ...state,
+          isAuthenticated: false,
+        };
     default:
       return state;
   }

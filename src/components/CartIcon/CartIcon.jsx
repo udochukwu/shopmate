@@ -10,7 +10,8 @@ function CartIcon(props) {
     badgeColor,
     textColor,
     items,
-    addedClass
+    addedClass,
+    handleClick
   } = props;
 
   return (
@@ -18,7 +19,14 @@ function CartIcon(props) {
       className={`header-cart-icon ${addedClass}`}
       style={{ "--text-color": textColor, "--badge-color": badgeColor }}
     >
-      <span style={{ width: '25px'}} className="p1 fa-stack fa-2x has-badge" data-count={items}>
+      <span
+        style={{ width: "25px" }}
+        className="p1 fa-stack fa-2x has-badge no-outline"
+        data-count={items}
+        onClick={handleClick}
+        role="button"
+        tabIndex={0}
+      >
         <ShopingCart
           style={{ fill: cartColor }}
         />
@@ -32,7 +40,8 @@ CartIcon.propTypes = {
   cartColor: PropTypes.string,
   badgeColor: PropTypes.string,
   textColor: PropTypes.string,
-  addedClass: PropTypes.string
+  addedClass: PropTypes.string,
+  handleClick: PropTypes.func
 };
 
 export default CartIcon;
